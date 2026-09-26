@@ -1,0 +1,9 @@
+data/zim/*
+!data/zim/.gitkeep
+data/maps/*
+!data/maps/.gitkeep
+data/kolibri/*
+!data/kolibri/.gitkeep
+data/files/*
+!data/files/.gitkeep
+!data/files/README.txt
