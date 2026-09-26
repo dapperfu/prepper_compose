@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Solitaire</title>
+  <link rel="icon" href="/favicon.svg">
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+  <header class="top">
+    <div class="top-inner">
+      <a class="brand" href="/">Offline library</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/solitaire.html">Solitaire</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <p class="kicker">Klondike</p>
+    <h1>Solitaire</h1>
+    <div class="row solitaire-toolbar">
+      <button class="button" id="new-game" type="button">New game</button>
+      <button class="button quiet" id="draw-mode" type="button">Draw 1</button>
+      <span id="moves">0 moves</span>
+      <span class="win" id="win" hidden>The tableau is clear.</span>
+    </div>
+    <div id="board"></div>
+    <p class="note">Tap a card, then tap where it should go. Tap the same card again to send a single card to a foundation pile when the move is legal.</p>
+  </main>
+  <script src="/solitaire.js"></script>
+</body>
+</html>

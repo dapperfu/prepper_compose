@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Morse code</title>
+  <link rel="icon" href="/favicon.svg">
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+  <header class="top">
+    <div class="top-inner">
+      <a class="brand" href="/">Offline library</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/library/">Library</a>
+        <a href="/map.html">Maps</a>
+        <a href="/morse.html">Morse</a>
+        <a href="/phrases.html">Phrases</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <p class="kicker">Sound and lamp</p>
+    <h1>Morse code</h1>
+    <div class="panel">
+      <label for="plain">Message</label>
+      <textarea id="plain" spellcheck="false">SOS HELP</textarea>
+      <div class="row">
+        <button class="button" id="play" type="button">Play</button>
+        <button class="button quiet" id="stop" type="button">Stop</button>
+        <label for="wpm">Speed <input id="wpm" type="range" min="5" max="25" value="12"></label>
+        <span id="wpm-label">12 words per minute</span>
+      </div>
+      <div class="lamp" id="lamp" aria-hidden="true"></div>
+      <p class="morse-out" id="coded" aria-live="polite"></p>
+    </div>
+    <div class="panel" style="margin-top:16px">
+      <label for="coded-in">Dots, dashes, and spaces</label>
+      <input id="coded-in" type="text" value="... --- ..." autocomplete="off" spellcheck="false">
+      <p class="note">Separate letters with a space and words with a slash. Example: <span>... --- ... / .... . .-.. .--.</span></p>
+      <p id="decoded" aria-live="polite"></p>
+    </div>
+  </main>
+  <script src="/morse.js"></script>
+</body>
+</html>

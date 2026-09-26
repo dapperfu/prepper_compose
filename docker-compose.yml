@@ -1,0 +1,52 @@
+services:
+  portal:
+    build: .
+    ports:
+      - "8888:80"
+    volumes:
+      - ./data/files:/data/files:ro
+    depends_on:
+      - maps
+    restart: unless-stopped
+
+  content:
+    build:
+      context: .
+      dockerfile: content/Dockerfile
+    volumes:
+      - ./data/zim:/data/zim
+    restart: "no"
+
+  kiwix:
+    image: ghcr.io/kiwix/kiwix-serve:latest
+    volumes:
+      - ./data/zim:/data:ro
+    command: ["--urlRootLocation=/library", "--skipInvalid", "--nodatealiases", "*.zim"]
+    depends_on:
+      content:
+        condition: service_completed_successfully
+    restart: unless-stopped
+
+  maps:
+    build:
+      context: ./maps
+      args:
+        MAP_MAXZOOM: ${MAP_MAXZOOM:-14}
+    ports:
+      - "8891:8080"
+    command: ["serve", "/maps", "--port=8080", "--public-url=http://localhost:8891"]
+    restart: unless-stopped
+
+  kolibri:
+    image: ghcr.io/learningequality/kolibri:latest
+    ports:
+      - "8889:8080"
+      - "8890:8081"
+    volumes:
+      - ./data/kolibri:/kolibri
+    restart: unless-stopped
+
+# To share a USB drive, add this under portal.volumes:
+#   - /media/usb:/data/files/usb:ro
+# The portal container reads files as a non-root user, so the files must be
+# world-readable.

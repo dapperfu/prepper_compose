@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Offline library</title>
+  <link rel="icon" href="/favicon.svg">
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+  <header class="top">
+    <div class="top-inner">
+      <a class="brand" href="/">Offline library</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/library/">Library</a>
+        <a href="/map.html">Maps</a>
+        <a href="/files/">Files</a>
+        <a data-kolibri href="http://localhost:8889">Learn</a>
+        <a href="/morse.html">Morse</a>
+        <a href="/phrases.html">Phrases</a>
+        <a href="/solitaire.html">Solitaire</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <p class="kicker">Local only</p>
+    <h1>A library that stays up when the internet does not.</h1>
+    <p class="lede">Reference books, repair guides, medical articles, street maps, and a few small tools, served from this machine to every phone and laptop on the same network.</p>
+    <p>Open this address on another device: <strong class="address" data-here>http://localhost:8888</strong></p>
+    <p class="note">The first start downloads the full archives onto disk: English Wikipedia and Wikibooks with pictures, wikiHow, iFixit, and the full English Project Gutenberg. They are not stored inside the Docker image. Licensed Prepper Disk books are not included. Put your own legal copies in Files.</p>
+
+    <h2>Reference</h2>
+    <div class="grid">
+      <a class="card" href="/library/wikipedia_en_all_maxi/">
+        <span class="kicker">Kiwix</span>
+        <h3>Wikipedia</h3>
+        <p>The full English encyclopedia, including pictures.</p>
+      </a>
+      <a class="card" href="/library/wikibooks_en_all_maxi/">
+        <span class="kicker">Kiwix</span>
+        <h3>Wikibooks</h3>
+        <p>The full English textbook collection, including pictures.</p>
+      </a>
+      <a class="card" href="/library/wikihow_en_maxi/">
+        <span class="kicker">Kiwix</span>
+        <h3>wikiHow</h3>
+        <p>The full English how-to collection, with illustrations.</p>
+      </a>
+      <a class="card" href="/library/ifixit_en_all/">
+        <span class="kicker">Kiwix</span>
+        <h3>iFixit</h3>
+        <p>The full English repair guides for devices, appliances, and equipment.</p>
+      </a>
+      <a class="card" href="/library/gutenberg_en_all/">
+        <span class="kicker">Kiwix</span>
+        <h3>Project Gutenberg</h3>
+        <p>The full English public-domain library. This archive is very large.</p>
+      </a>
+      <a class="card" href="/library/">
+        <span class="kicker">Kiwix</span>
+        <h3>Stack Exchange</h3>
+        <p>Sustainable living, the outdoors, mechanics, and woodworking.</p>
+      </a>
+      <a class="card" href="/library/">
+        <span class="kicker">Kiwix</span>
+        <h3>TED talks</h3>
+        <p>Farming, natural disasters, and climate, when those archives are in the catalog.</p>
+      </a>
+      <a class="card" data-kolibri href="http://localhost:8889">
+        <span class="kicker">Kolibri</span>
+        <h3>Khan Academy</h3>
+        <p>Lessons and exercises. Import a channel while online. Kolibri Studio opens on port 8889.</p>
+      </a>
+    </div>
+
+    <h2>Crisis</h2>
+    <div class="grid">
+      <a class="card" href="/library/mdwiki_en_all/">
+        <span class="kicker">Kiwix</span>
+        <h3>WikiMed</h3>
+        <p>Offline medical encyclopedia from Wiki Project Med.</p>
+      </a>
+      <a class="card" href="/library/wikem_en_all_maxi/">
+        <span class="kicker">Kiwix</span>
+        <h3>WikEM</h3>
+        <p>Emergency medicine articles.</p>
+      </a>
+      <a class="card" href="/library/">
+        <span class="kicker">Kiwix</span>
+        <h3>Field packs</h3>
+        <p>Water, knots, medicine, food preparation, and post-disaster guides.</p>
+      </a>
+      <a class="card" href="/library/">
+        <span class="kicker">Kiwix</span>
+        <h3>Appropedia and Energypedia</h3>
+        <p>Practical technology and energy articles.</p>
+      </a>
+      <a class="card" href="/files/">
+        <span class="kicker">Files</span>
+        <h3>Manuals you add</h3>
+        <p>FEMA pamphlets, military field manuals, and other PDFs you copy onto this machine.</p>
+      </a>
+      <div class="card">
+        <span class="kicker">Not included</span>
+        <h3>Licensed survival guides</h3>
+        <p>Named commercial field guides are not copied here. Add a legal file of your own under Files.</p>
+      </div>
+    </div>
+
+    <h2>Maps and radio</h2>
+    <div class="grid">
+      <a class="card" href="/map.html">
+        <span class="kicker">OpenStreetMap</span>
+        <h3>Street maps</h3>
+        <p>North America, Europe, and Oceania, plus a coarse world overview. Streets and places, not satellite photos.</p>
+      </a>
+      <a class="card" href="/files/nps/">
+        <span class="kicker">NPS</span>
+        <h3>National park brochures</h3>
+        <p>Public-domain park PDFs saved by the park-map script.</p>
+      </a>
+      <div class="card">
+        <span class="kicker">On your phone</span>
+        <h3>RepeaterBook</h3>
+        <p>Repeater data is not copied from RepeaterBook. Install their app and update its database while you still have internet. It then works offline on that phone.</p>
+      </div>
+      <div class="card">
+        <span class="kicker">Not included</span>
+        <h3>Satellite imagery</h3>
+        <p>A photo mosaic of three continents is not part of this stack. Use the street map to find roads, towns, and water.</p>
+      </div>
+    </div>
+
+    <h2>Tools</h2>
+    <div class="grid">
+      <a class="card" href="/morse.html">
+        <span class="kicker">In this browser</span>
+        <h3>Morse code</h3>
+        <p>Type a message, play the sound, and watch the lamp. Decode dots and dashes you type in.</p>
+      </a>
+      <a class="card" href="/phrases.html">
+        <span class="kicker">In this browser</span>
+        <h3>Emergency phrases</h3>
+        <p>Short phrases in English, Spanish, French, Italian, German, and Russian.</p>
+      </a>
+      <a class="card" href="/solitaire.html">
+        <span class="kicker">In this browser</span>
+        <h3>Solitaire</h3>
+        <p>Klondike, played in the browser.</p>
+      </a>
+      <a class="card" href="/files/">
+        <span class="kicker">Files</span>
+        <h3>Shared folder</h3>
+        <p>Anything you place in the files directory, including a USB drive mounted on the host.</p>
+      </a>
+    </div>
+  </main>
+  <script src="/site.js"></script>
+</body>
+</html>

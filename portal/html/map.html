@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Street maps</title>
+  <link rel="icon" href="/favicon.svg">
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/vendor/maplibre-gl.css">
+</head>
+<body class="map-page">
+  <header class="top">
+    <div class="top-inner">
+      <a class="brand" href="/">Offline library</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/map.html">Maps</a>
+        <a href="/files/nps/">Park brochures</a>
+      </nav>
+    </div>
+  </header>
+  <div class="map-toolbar">
+    <div class="region-row" id="regions"></div>
+    <p class="map-status" id="map-status">Loading the map.</p>
+  </div>
+  <div id="map"></div>
+  <script src="/vendor/maplibre-gl.js"></script>
+  <script src="/map.js"></script>
+</body>
+</html>

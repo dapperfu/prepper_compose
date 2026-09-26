@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Emergency phrases</title>
+  <link rel="icon" href="/favicon.svg">
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+  <header class="top">
+    <div class="top-inner">
+      <a class="brand" href="/">Offline library</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/morse.html">Morse</a>
+        <a href="/phrases.html">Phrases</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <p class="kicker">Show the screen</p>
+    <h1>Emergency phrases</h1>
+    <p class="lede">Short lines for medical help, water, shelter, rescue, and directions. Pick a language and hold the phone up.</p>
+    <div class="lang-row" id="languages"></div>
+    <div class="cat-row" id="categories"></div>
+    <label for="filter">Search</label>
+    <input id="filter" type="search" placeholder="hospital, water, lost">
+    <div id="list"></div>
+  </main>
+  <script src="/phrases.js"></script>
+</body>
+</html>

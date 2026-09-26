@@ -1,0 +1,113 @@
+# Newest matching ZIM. The default hub is https://download.kiwix.org/zim/
+# An entry may set `base` to an extra mirror. The fetch script keeps the newest match.
+# These are the full archives: Wikipedia and Wikibooks with pictures (`maxi`),
+# the full English wikiHow, iFixit, and Project Gutenberg (`all`).
+entries:
+  - id: wikipedia
+    title: English Wikipedia with pictures
+    directory: wikipedia
+    pattern: '^wikipedia_en_all_maxi_[0-9]{4}-[0-9]{2}[a-z]?\.zim$'
+
+  - id: wikibooks
+    title: English Wikibooks with pictures
+    directory: wikibooks
+    pattern: '^wikibooks_en_all_maxi_[0-9]{4}-[0-9]{2}[a-z]?\.zim$'
+
+  - id: ifixit
+    title: iFixit English
+    directory: ifixit
+    pattern: '^ifixit_en_all_[0-9]{4}-[0-9]{2}[a-z]?\.zim$'
+
+  - id: gutenberg
+    title: Project Gutenberg English
+    directory: gutenberg
+    pattern: '^gutenberg_en_all_[0-9]{4}-[0-9]{2}[a-z]?\.zim$'
+
+  - id: wikihow
+    title: wikiHow English
+    directory: wikihow
+    base: https://mirror-sites-ca.mblibrary.info/mirror-sites/download.kiwix.org/archive/zim
+    pattern: '^wikihow_en_maxi_[0-9]{4}-[0-9]{2}[a-z]?\.zim$'
+
+  - id: mdwiki
+    title: WikiMed English
+    directory: other
+    pattern: '^mdwiki_en_all_[0-9]{4}-[0-9]{2}[a-z]?\.zim$'
+
+  - id: wikem
+    title: WikEM English
+    directory: other
+    pattern: '^wikem_en_all_maxi_[0-9]{4}-[0-9]{2}[a-z]?\.zim$'
+
+  - id: sustainability
+    title: Sustainable Living Stack Exchange
+    directory: stack_exchange
+    pattern: '^sustainability\.stackexchange\.com_en_all_[0-9]{4}-[0-9]{2}[a-z]?\.zim$'
+
+  - id: outdoors
+    title: The Great Outdoors Stack Exchange
+    directory: stack_exchange
+    pattern: '^outdoors\.stackexchange\.com_en_all_[0-9]{4}-[0-9]{2}[a-z]?\.zim$'
+
+  - id: mechanics
+    title: Motor Vehicle Maintenance Stack Exchange
+    directory: stack_exchange
+    pattern: '^mechanics\.stackexchange\.com_en_all_[0-9]{4}-[0-9]{2}[a-z]?\.zim$'
+
+  - id: woodworking
+    title: Woodworking Stack Exchange
+    directory: stack_exchange
+    pattern: '^woodworking\.stackexchange\.com_en_all_[0-9]{4}-[0-9]{2}[a-z]?\.zim$'
+
+  - id: ted-farming
+    title: TED talks on farming
+    optional: true
+    directory: ted
+    pattern: '^ted_mul_farming_[0-9]{4}-[0-9]{2}[a-z]?\.zim$'
+
+  - id: ted-disasters
+    title: TED talks on natural disasters
+    optional: true
+    directory: ted
+    pattern: '^ted_mul_natural-disaster_[0-9]{4}-[0-9]{2}[a-z]?\.zim$'
+
+  - id: ted-climate
+    title: TED talks on climate
+    optional: true
+    directory: ted
+    pattern: '^ted_mul_climate-change_[0-9]{4}-[0-9]{2}[a-z]?\.zim$'
+
+  - id: appropedia
+    title: Appropedia
+    directory: other
+    pattern: '^appropedia_en_all_maxi_[0-9]{4}-[0-9]{2}[a-z]?\.zim$'
+
+  - id: energypedia
+    title: Energypedia
+    directory: other
+    pattern: '^energypedia_en_all_maxi_[0-9]{4}-[0-9]{2}[a-z]?\.zim$'
+
+  - id: water
+    title: Water guides
+    directory: other
+    pattern: '^zimgit-water_en_[0-9]{4}-[0-9]{2}[a-z]?\.zim$'
+
+  - id: knots
+    title: Knots
+    directory: other
+    pattern: '^zimgit-knots_en_[0-9]{4}-[0-9]{2}[a-z]?\.zim$'
+
+  - id: medicine-pack
+    title: Medicine field pack
+    directory: other
+    pattern: '^zimgit-medicine_en_[0-9]{4}-[0-9]{2}[a-z]?\.zim$'
+
+  - id: food
+    title: Food preparation
+    directory: other
+    pattern: '^zimgit-food-preparation_en_[0-9]{4}-[0-9]{2}[a-z]?\.zim$'
+
+  - id: post-disaster
+    title: Post-disaster guides
+    directory: other
+    pattern: '^zimgit-post-disaster_en_[0-9]{4}-[0-9]{2}[a-z]?\.zim$'
