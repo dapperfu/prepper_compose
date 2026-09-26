@@ -50,9 +50,9 @@ docker compose up -d --build
 
 `docker compose up` builds the content image and runs `scripts/fetch-content.sh --yes`. That downloads the archives in `content/catalog.yml` into `data/zim`. The command keeps going until those files are on disk. Kiwix starts after the download finishes. The home page, maps, and Kolibri come up while the download is still running. The first run needs a lot of free disk. Run the same command again to resume an interrupted download.
 
-`docker compose build` downloads and extracts every street-map archive into the maps image. `docker compose build --no-cache maps` replaces tiles already baked into the image.
+`docker compose build` downloads and extracts every street-map archive into the maps image, and pulls Qwen2.5 1.5B, Nemotron 3, and GLM 5.3 Flash into the Ollama image. `docker compose build --no-cache maps` replaces tiles already baked into the image. `docker compose build --no-cache ollama` replaces the models already baked into that image.
 
-Open `http://<this-machine>:8888`. Kolibri Studio is `http://<this-machine>:8889`. Maps are `http://<this-machine>:8891`.
+Open `http://<this-machine>:8888`. Kolibri Studio is `http://<this-machine>:8889`. Maps are `http://<this-machine>:8891`. Ollama is `http://<this-machine>:8892`.
 
 `./scripts/fetch-content.sh` without `--yes` only prints names and sizes. `./scripts/fetch-content.sh --yes` downloads the same archives into `data/zim` without Docker. There is no smaller Wikipedia and no way to skip Gutenberg. The Library of Alexandria did not offer a lite SKU either.
 
@@ -63,6 +63,7 @@ Open `http://<this-machine>:8888`. Kolibri Studio is `http://<this-machine>:8889
 - **Kiwix** serves every `.zim` file in `data/zim` at `/library/`. Date-free addresses such as `/library/wikipedia_en_all_maxi/` open the book. The file list stays at `/library/`.
 - **Maps** serves PMTiles on port 8891, cut from the current Protomaps daily build during `docker compose build`.
 - **Kolibri** stores learning content in `data/kolibri` and is published on port 8889.
+- **Ollama** (`ollama/Dockerfile`, port 8892) serves `qwen2.5:1.5b`, `nemotron3:33b`, and `glm-5.3-flash:cloud` from inside the image. GLM 5.3 Flash is published only as an Ollama cloud model, so that pull stores the cloud tag. There is no model volume.
 
 ## Khan Academy
 

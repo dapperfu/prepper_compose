@@ -45,14 +45,32 @@ extract() {
   zoom="$2"
   bbox="${3:-}"
   dest="/maps/${name}.pmtiles"
-  rm -f "$dest"
-  echo "Extracting ${name}"
-  if [ -n "$bbox" ]; then
-    pmtiles extract "$source_url" "$dest" --maxzoom="$zoom" --bbox="$bbox" --download-threads=8
-  else
-    pmtiles extract "$source_url" "$dest" --maxzoom="$zoom" --download-threads=8
-  fi
-  test -s "$dest"
+  attempt=1
+  max_attempts=5
+  while [ "$attempt" -le "$max_attempts" ]; do
+    # Cloudflare resets parallel range requests. Start below the old 8-thread
+    # setting and fall back further after each failure.
+    case "$attempt" in
+      1) threads=4 ;;
+      2) threads=2 ;;
+      *) threads=1 ;;
+    esac
+    rm -f "$dest"
+    echo "Extracting ${name} (attempt ${attempt}/${max_attempts}, ${threads} download threads)"
+    if pmtiles extract "$source_url" "$dest" --maxzoom="$zoom" ${bbox:+--bbox="$bbox"} --download-threads="$threads" \
+      && [ -s "$dest" ]; then
+      return 0
+    fi
+    echo "Extract of ${name} failed." >&2
+    if [ "$attempt" -ge "$max_attempts" ]; then
+      echo "Giving up on ${name} after ${max_attempts} attempts." >&2
+      exit 1
+    fi
+    wait_s=$((attempt * 15))
+    echo "Retrying ${name} in ${wait_s}s." >&2
+    sleep "$wait_s"
+    attempt=$((attempt + 1))
+  done
 }
 
 extract world 6

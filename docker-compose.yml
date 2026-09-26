@@ -2,7 +2,7 @@ services:
   portal:
     build: .
     ports:
-      - "8888:80"
+      - "58888:80"
     volumes:
       - ./data/files:/data/files:ro
     depends_on:
@@ -33,17 +33,32 @@ services:
       args:
         MAP_MAXZOOM: ${MAP_MAXZOOM:-14}
     ports:
-      - "8891:8080"
+      - "58891:8080"
     command: ["serve", "/maps", "--port=8080", "--public-url=http://localhost:8891"]
     restart: unless-stopped
 
   kolibri:
     image: ghcr.io/learningequality/kolibri:latest
     ports:
-      - "8889:8080"
-      - "8890:8081"
+      - "58889:8080"
+      - "58890:8081"
     volumes:
       - ./data/kolibri:/kolibri
+    restart: unless-stopped
+
+  ollama:
+    build: ./ollama
+    ports:
+      - "58892:11434"
+    environment:
+      OLLAMA_KEEP_ALIVE: 24h
+    gpus: all
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 10s
+      timeout: 10s
+      retries: 12
+      start_period: 15s
     restart: unless-stopped
 
 # To share a USB drive, add this under portal.volumes:
